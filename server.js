@@ -3,7 +3,8 @@ const express = require("express"); // Ve burada ise zemine dikeceğimiz binayı
 const app = express(); // Bu tanımladığımız binayı artık çalıştırmaya başlıyoruz.
 const server = http.createServer(app); // Çalıştırdığımız ve hazır olan binamızı http.create server ile zemine oturdup ikisini birleştiriyoruz ve böylece serverimiz full halde hazır oluyor.
 const io = require("socket.io")(server); // Şimdi ise bu örnekte chat app yapacağımız için binamızın tepesine anten takıyoruz. Bu antenin ismi io(input-output) Socket.io modülü
-
+const dotenv = require("dotenv");
+dotenv.config();
 app.use(express.json());
 
 app.get("/", (req, res) => {
@@ -23,7 +24,7 @@ io.on("connection", function (socket) {
   });
 });
 
-const port = 8000;
+const port = 8000 | process.env.PORT;
 server.listen(port, () => {
   console.log(`server is running on ${port}`);
 });
