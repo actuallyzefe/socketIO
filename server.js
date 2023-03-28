@@ -4,6 +4,8 @@ const app = express(); // Bu tanımladığımız binayı artık çalıştırmaya
 const server = http.createServer(app); // Çalıştırdığımız ve hazır olan binamızı http.create server ile zemine oturdup ikisini birleştiriyoruz ve böylece serverimiz full halde hazır oluyor.
 const io = require("socket.io")(server); // Şimdi ise bu örnekte chat app yapacağımız için binamızın tepesine anten takıyoruz. Bu antenin ismi io(input-output) Socket.io modülü
 
+app.use(express.json());
+
 app.get("/", (req, res) => {
   res.sendFile("./public/index.html", { root: __dirname });
 });
