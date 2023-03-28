@@ -26,5 +26,5 @@ io.on("connection", function (socket) {
 const port = 8000; // Serverimizin dinleyeceği portu söylüyoruz.
 server.listen(port, () => {
   // Bizim kurduğumuz server yapısının kapısının ismini bir üst satırda söylediğimiz porttan dinlemesini söylüyoruz.
-  console.log("Server is listening on:" + port + " now..."); // Dinlediğinin kanıtı olarak ekrana yazdırıyoruz.
+  console.log(`server is running on ${port}`); // Dinlediğinin kanıtı olarak ekrana yazdırıyoruz.
 });
